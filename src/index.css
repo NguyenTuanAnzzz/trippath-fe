@@ -1,0 +1,20 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+@import "tailwindcss";
+
+@theme {
+  /* 60% - Base Colors */
+  --color-platinum: #EEF0F2;
+  --color-platinum-dark: #E2E8F0;
+  --color-white: #FFFFFF;
+
+  /* 30% - Secondary Colors */
+  --color-onyx: #141414;
+  --color-onyx-light: #374151;
+  --color-gray-500: #6B7280;
+  --color-gray-400: #9CA3AF;
+
+  /* 10% - Accent Colors */
+  --color-tuscan-sun: #EEC643;
+  --color-tuscan-sun-dark: #D4B03D;
+  --color-error: #EF4444;
+}
