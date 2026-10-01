@@ -9,7 +9,9 @@ export async function getMe(token) {
     })
     const result = await response.json();
     if (!response.ok) {
-        throw new Error(result.message);
+        const error = new Error(result.message);
+        error.status = response.status;
+        throw error;
     }
     return result;
 }
@@ -25,7 +27,9 @@ export async function updateMe(token, formData) {
     })
     const result = await response.json();
     if (!response.ok) {
-        throw new Error(result.message);
+        const error = new Error(result.message);
+        error.status = response.status;
+        throw error;
     }
     return result;
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { updateMe } from "../apis/userApi";
 import useAuth from "../contexts/AuthContext";
+import useFetchWithAuth from "./useFetchWithAuth";
 
 export default function useUpdateMe() {
-    const { user, token, setUser } = useAuth()
+    const { user, setUser } = useAuth()
+    const fetchWithAuth = useFetchWithAuth()
     const [form, setForm] = useState({ name: user?.name || "", phone: user?.phone || "", avatar: user?.avatar || "" });
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
@@ -48,7 +50,7 @@ export default function useUpdateMe() {
             if (form.avatar instanceof File) {
                 formData.set("avatar", form.avatar);
             }
-            const result = await updateMe(token, formData)
+            const result = await fetchWithAuth(updateMe, formData)
             if (result) {
                 setMessage("Cập nhật thông tin thành công");
                 setUser(result);

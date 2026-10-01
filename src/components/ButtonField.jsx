@@ -4,12 +4,14 @@ export default function ButtonField({
     icon,
     children,
     type = "button",
-    disabled = false
+    disabled = false,
+    onClick
 }) {
     return (
         <button
             type={type}
             disabled={disabled}
+            onClick={onClick}
             className={`w-full py-3 px-4 border border-gray-300 rounded-lg ${bg} ${hover} flex items-center justify-center gap-2 transition-colors cursor-pointer`}
         >
             {icon && (

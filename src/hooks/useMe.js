@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { getMe } from "../apis/userApi";
 import useAuth from "../contexts/AuthContext";
+import useFetchWithAuth from "./useFetchWithAuth";
 
 export default function useMe() {
     const [error, setError] = useState()
     const [loading, setLoading] = useState(false)
-    const { token, setUser } = useAuth();
+    const { setUser } = useAuth();
+    const fetchWithAuth = useFetchWithAuth();
 
     const fetchData = async () => {
         try {
             setError("")
             setLoading(true)
 
-            const result = await getMe(token)
+            const result = await fetchWithAuth(getMe)
             if (result) {
                 setUser(result)
             }
