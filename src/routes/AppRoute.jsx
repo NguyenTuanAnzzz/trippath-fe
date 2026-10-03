@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router";
 import RegisterPage from "../pages/RegisterPage";
-import CreateTour from "../pages/admin/CreateTour";
 import OtpPage from "../pages/OtpPage";
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
@@ -13,6 +12,7 @@ import StaffRoute from "./StaffRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
 import OverviewPage from "../pages/admin/OverviewPage";
 import TourManagementPage from "../pages/admin/TourManagementPage";
+import CreateTourPackage from "../pages/admin/CreateTourPackage";
 
 export default function AppRoute() {
     return (
@@ -32,9 +32,9 @@ export default function AppRoute() {
                     <Route element={<AdminRoute />}>
                         <Route path="admin" element={<OverviewPage />} />
                         <Route path="admin/tours" element={<TourManagementPage />} />
-                        <Route path="admin/tours/create" element={<CreateTour />} />
+                        <Route path="admin/tours/create" element={<CreateTourPackage />} />
                     </Route>
-                    
+
                     {/* Route dành riêng cho Staff */}
                     <Route element={<StaffRoute />}>
                         <Route path="staff" element={<OverviewPage />} />

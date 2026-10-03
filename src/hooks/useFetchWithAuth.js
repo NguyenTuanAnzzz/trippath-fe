@@ -8,6 +8,7 @@ export default function useFetchWithAuth() {
     const fetchWithAuth = async (apiFunction, ...args) => {
         try {
             // Gọi API lần đầu bằng access token hiện tại
+            console.log("ACCESS TOKEN:", token);
             return await apiFunction(token, ...args);
 
         } catch (error) {
